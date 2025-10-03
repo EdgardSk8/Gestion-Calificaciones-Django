@@ -1,7 +1,12 @@
+#Login/urls.py
 
 from django.urls import path
 from . import views # Importacion de vistas en la misma carpeta ( . )
 
 urlpatterns = [
-    path('', views.hello), # En la vista principal, llamar con view a la funcion "hello"
+   path('nuevo_alumno/', views.Nuevo_Alumno, name='nuevo_alumno'),
+   path('alumno/<int:alumno_id>/eliminar_alumno/', views.Eliminar_Alumno, name='eliminar_alumno'),
+
+   path('alumno/<int:alumno_id>/cambiar_estado_alumno/', views.Cambiar_Estado_Alumno, name='cambiar_estado_alumno'),
+
 ]

@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from Login import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Login.urls')) # Incluye las rutas de las vistas desde "Login.urls" 
+    path('login/', include('Login.urls')),
+
+    path('', views.Cargar_Login, name='login'),
 ]

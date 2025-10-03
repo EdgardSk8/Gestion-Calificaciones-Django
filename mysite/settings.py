@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Login', # Nombre de la app donde hay modelos
+    'Login', # Nombre de la app configurada
 ]
 
 MIDDLEWARE = [
@@ -132,3 +132,27 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.db import connections
+from django.db.utils import OperationalError
+
+def Mensaje():
+
+    try:
+        db_conn = connections['default']
+        db_conn.cursor()
+        
+    except OperationalError as e:
+        if "2002" in str(e):
+            print("\n\n\033[91m" + "⚠️  ERROR DE CONEXIÓN A LA BASE DE DATOS" + "\n\033[0m")
+            print("\033[93m" + "El servidor MySQL/MariaDB está apagado o inaccesible." + "\n\033[0m")
+            print("\033[96m" + "👉 Por favor, enciéndelo desde XAMPP antes de continuar." + "\033[0m")
+            print("\033[96m" + "👉 En otro caso revise los parametros de DATABASE en settings.py .\n" + "\033[0m")
+        elif "1049" in str(e):
+            print("\n⚠️ Nombre de base de datos incorrecto.\n")
+        elif "1045" in str(e):
+            print("\n⚠️ Usuario o contraseña inválidos.\n")
+        else:
+            print(f"\n⚠️ Error desconocido: {e}\n")
+
+Mensaje()

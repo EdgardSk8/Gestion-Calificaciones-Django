@@ -1,0 +1,152 @@
+/* --- Estilos Generales --- */
+* {margin: 0;padding: 0;box-sizing: border-box;} /* Sin margenes, sin rellenos */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    /* font-family: "Verdana", sans-serif; */
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+/* #################################################################################################### */
+
+/* --- Contenedor Principal --- */
+
+.Contenedor-Login {
+    display: flex;
+    width: 70%;
+    height: 400px;
+    max-height: 90%;
+    max-width: 90%;
+    /* background: linear-gradient(90deg, #9c78ff, #99f7f2); */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* #################################################################################################### */
+
+/* --- Sección Izquierda (Ilustración) --- */
+
+.Contenedor-Ilustracion {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Para posicionar las formas geométricas */
+}
+
+.icon-wrapper { /* "Sol" */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(0, 113, 128);
+    z-index: 2;
+}
+
+.icon-wrapper i {font-size: 60px;color: #1954d3;} /* "Icono Sol" */
+
+.orbit { /* tamanio de la orbita */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px dashed rgb(14, 144, 204);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    transform-origin: center;
+}
+
+/* "Orbitas" */
+.orbit1 { width: 160px; height: 160px; margin-left: -80.0px; margin-top: -80px; animation: orbit 4s linear infinite 0.0s; }
+.orbit2 { width: 200px; height: 200px; margin-left: -100px; margin-top: -100px; animation: orbit 5s linear infinite 0.2s; }
+.orbit3 { width: 240px; height: 240px; margin-left: -120px; margin-top: -120px; animation: orbit 6s linear infinite 0.4s; }
+.orbit4 { width: 280px; height: 280px; margin-left: -140px; margin-top: -140px; animation: orbit 7s linear infinite 0.6s; }
+.orbit5 { width: 320px; height: 320px; margin-left: -160px; margin-top: -160px; animation: orbit 8s linear infinite 0.8s; }
+.orbit6 { width: 360px; height: 360px; margin-left: -180px; margin-top: -180px; animation: orbit 9s linear infinite 1.0s; }
+
+/* Planetas */
+.planet i {font-size: 20px;color: #2a1ecf;margin: -10px;}
+
+/* Animación de giro */
+@keyframes orbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* #################################################################################################### */
+
+/* --- Sección Derecha (Formulario) --- */
+
+.form-section { flex-basis: 50%; padding: 50px 20px; }
+
+.form-section h1 { /* Titulo */
+    font-size: 34px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* --- Contenedor del input --- */
+
+.Mini-Contenedor-Input { /* Contenedor de los inputs */
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.Mini-Contenedor-Input i { /* Icono dentro del input */
+    position: absolute;
+    left: 15px; top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.Mini-Contenedor-Input input { /* Input */
+    width: 100%;
+    padding: 12px 15px 12px 45px; /* Espacio para el icono */
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.Mini-Contenedor-Input input:hover, /* Al pasar el raton y tocar los inputs */
+.Mini-Contenedor-Input input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    background-color: #fff;
+}
+
+.Mini-Contenedor-Input input::placeholder { transition: transform 0.3s ease, opacity 0.3s ease; } /* Animación placeholder */
+.Mini-Contenedor-Input input:focus::placeholder { transform: translateY(10px); opacity: 0; } /* Mover hacia abajo en eje Y */
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+.Btn-Login { /* Boton de Login */
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 0 #1e7e34;
+}
+
+.Btn-Login:hover { background-color: #218838; transform: scale(0.97); }/* Animacion al pasar el raton */
+.Btn-Login:active { transform: translateY(3px) scale(0.98); box-shadow: 0 1px 0 #1e7e34; }/* animacion al presionar el boton */
+
+
+
