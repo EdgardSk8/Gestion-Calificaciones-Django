@@ -3,12 +3,54 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-from .models import Alumno
 from django.shortcuts import render
 from .utils import Generar_Carnet, Generar_Contrasenia
+from django.contrib.auth.hashers import check_password
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from Gestion.models import Maestro
+from Gestion.models import Alumno
 
 def Cargar_Login(request):
     return render(request, 'login/Login.html')
+
+# ------------------------------------------------------------------------------------------------------------ #
+
+def login_view(request):
+    if request.method == "POST":
+        carnet = request.POST.get("carnet")
+        contrasena = request.POST.get("contrasena")
+
+        # Primero buscamos si es Maestro
+        try:
+            usuario = Maestro.objects.get(carnet_maestro=carnet)
+            if check_password(contrasena, usuario.contrasena_maestro):  # Contraseña encriptada
+                # Guardar rol y usuario en sesión
+                request.session['rol'] = 'maestro'
+                request.session['usuario_id'] = usuario.id_maestro
+                return redirect('dashboard_maestro')  # URL del panel de maestro
+            else:
+                messages.error(request, "Contraseña incorrecta")
+                return redirect('login')
+        except Maestro.DoesNotExist:
+            pass
+
+        # Si no es Maestro, buscamos Alumno
+        try:
+            usuario = Alumno.objects.get(carnet_alumno=carnet)
+            if check_password(contrasena, usuario.contrasena_alumno):
+                request.session['rol'] = 'alumno'
+                request.session['usuario_id'] = usuario.id_alumno
+                return redirect('dashboard_alumno')  # URL del panel de alumno
+            else:
+                messages.error(request, "Contraseña incorrecta")
+                return redirect('login')
+        except Alumno.DoesNotExist:
+            messages.error(request, "Usuario no encontrado")
+            return redirect('login')
+
+    # GET: mostrar formulario
+    return render(request, 'login.html')
 
 # ------------------------------------------------------------------------------------------------------------ #
 

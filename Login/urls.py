@@ -1,7 +1,7 @@
 #Login/urls.py
 
 from django.urls import path
-from . import views # Importacion de vistas en la misma carpeta ( . )
+from . import views 
 
 urlpatterns = [
    path('nuevo_alumno/', views.Nuevo_Alumno, name='nuevo_alumno'),

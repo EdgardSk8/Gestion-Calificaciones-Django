@@ -20,7 +20,8 @@ from Login import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', include('Login.urls')),
+    path('/', include('Login.urls')),
+    path('gestion/', include('Gestion.urls')), 
 
     path('', views.Cargar_Login, name='login'),
 ]

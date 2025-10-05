@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Login', # Nombre de la app configurada
+    'Login', # Nombre de la app
+    'Gestion'
 ]
 
 MIDDLEWARE = [
@@ -145,14 +146,19 @@ def Mensaje():
     except OperationalError as e:
         if "2002" in str(e):
             print("\n\n\033[91m" + "⚠️  ERROR DE CONEXIÓN A LA BASE DE DATOS" + "\n\033[0m")
+
             print("\033[93m" + "El servidor MySQL/MariaDB está apagado o inaccesible." + "\n\033[0m")
+
             print("\033[96m" + "👉 Por favor, enciéndelo desde XAMPP antes de continuar." + "\033[0m")
             print("\033[96m" + "👉 En otro caso revise los parametros de DATABASE en settings.py .\n" + "\033[0m")
+
+            print("\033[91m" + "Para mas informacion descomentar la funcion 'Mensaje' en la linea 160 " + "\n\033[0m")
         elif "1049" in str(e):
             print("\n⚠️ Nombre de base de datos incorrecto.\n")
         elif "1045" in str(e):
             print("\n⚠️ Usuario o contraseña inválidos.\n")
         else:
+            print("\n\n\033[91m" + "Para mas informacion descomentar la funcion 'Mensaje' en la linea 160 en mysite/settings.py " + "\n\033[0m")
             print(f"\n⚠️ Error desconocido: {e}\n")
 
 Mensaje()
