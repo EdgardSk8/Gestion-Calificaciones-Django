@@ -4,9 +4,11 @@ from django.urls import path
 from . import views 
 
 urlpatterns = [
-   path('nuevo_alumno/', views.Nuevo_Alumno, name='nuevo_alumno'),
-   path('alumno/<int:alumno_id>/eliminar_alumno/', views.Eliminar_Alumno, name='eliminar_alumno'),
+   path('', views.Cargar_Login, name='login'),
+   path('login_usuario/', views.login_usuario, name='login_usuario'),  # Endpoint POST login
 
-   path('alumno/<int:alumno_id>/cambiar_estado_alumno/', views.Cambiar_Estado_Alumno, name='cambiar_estado_alumno'),
+   path('vista_alumno/', views.vista_alumno_render, name='vista_alumno'),
+   path('vista_maestro/', views.vista_maestro_render, name='vista_maestro'),
+   path('vista_admin/', views.vista_admin_render, name='vista_admin'),
 
 ]

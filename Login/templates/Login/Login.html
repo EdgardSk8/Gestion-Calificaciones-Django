@@ -39,8 +39,14 @@
 
             <form>
 
-                <div class="Mini-Contenedor-Input"><i class="fa-solid fa-id-card"></i><input placeholder="Carnet" required></div>
-                <div class="Mini-Contenedor-Input"><i class="fa-solid fa-lock"></i><input type="password" placeholder="Contraseña" required></div>
+                <div class="Mini-Contenedor-Input"><i class="fa-solid fa-id-card"></i>
+                    <input id="carnet" placeholder="Carnet" required>
+                </div>
+
+                <div class="Mini-Contenedor-Input"><i class="fa-solid fa-lock"></i>
+                    <input id="contrasena" type="password" placeholder="Contraseña" required>
+                </div>
+
                 <button type="submit" class="Btn-Login">Login</button>
                 
             </form>
@@ -49,6 +55,7 @@
 
     </div>
 
+    <script src="{% static 'login/login.js' %}"></script>
 </body>
 
 </html>
