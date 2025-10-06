@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         try {
-            const response = await fetch("/login_usuario/", {
+            const response = await fetch("/login/login_usuario/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (data.success) { // Redirigir según rol
                 
                 switch(data.rol) {
-                    case "alumno": window.location.href = "/vista_alumno/"; break;
-                    case "maestro": window.location.href = "/vista_maestro/"; break; 
-                    case "admin": window.location.href = "/vista_admin/"; break;
+                    case "alumno": window.location.href = "/login/vista_alumno/"; break;
+                    case "maestro": window.location.href = "/login/vista_maestro/"; break; 
+                    case "admin": window.location.href = "/login/vista_admin/"; break;
                 }
                 
             } else {
@@ -46,4 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+
+
 });
+

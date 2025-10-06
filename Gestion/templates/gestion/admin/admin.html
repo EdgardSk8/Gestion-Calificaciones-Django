@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+
+    <!-- <link rel="stylesheet" href="/Gestion/static/css/admin/admin.css"> -->
+    <link rel="stylesheet" href="{% static '/css/admin/admin.css' %}">
+
+</head>
+
+<body>
+
+    <div class="Contenedor-Principal">
+
+        <div class="Encabezado">
+
+            <h1>Sistema de Gestion Escolar</h2>
+
+        </div>
+
+        <div class="sesion">
+            <button class="btn-cerrarsesion">
+                cerrar sesion
+            </button>
+
+        </div>
+
+        <div class="Usuario">
+
+            <h3>Datos de Usuario</h3>
+            
+            <label for="">Rol: Profesor </label>
+            <label for="">Carnet:  </label>
+            <label for="">Nombre:  </label>
+            <label for="">Apellido:  </label>
+            <label for="">Especialidad:  </label>
+
+        </div>
+
+        <div class="Elementos-Gestion">
+
+            <div class="Categorias">
+
+                <div class="Categoria-items">
+                    <h3>Docentes</h3>
+                </div>
+
+                <div class="Categoria-items">
+                    <h3>Estudiantes</h3>
+                </div>
+
+                <div class="Categoria-items">
+                    <h3>Clases</h3>
+                </div>
+
+                <div class="Categoria-items">
+                    <h3>Calificaciones</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    
+</body>
+
+</html>

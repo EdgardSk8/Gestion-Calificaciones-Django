@@ -3,8 +3,9 @@
 from django.urls import path
 from . import views 
 
+app_name = 'login'
+
 urlpatterns = [
-   path('', views.Cargar_Login, name='login'),
    path('login_usuario/', views.login_usuario, name='login_usuario'),  # Endpoint POST login
 
    path('vista_alumno/', views.vista_alumno_render, name='vista_alumno'),

@@ -57,20 +57,20 @@ def login_usuario(request):
 def vista_alumno_render(request): # Funcion que redirige hacia la vista de alumno
     if request.session.get('rol') != 'alumno':
         return redirect('/')  # Redirige al login si no es alumno
-    return render(request, "gestion/alumno.html")
+    return render(request, "gestion/alumno/alumno.html")
 
 # ------------------------------------------------------------------ #
 
 def vista_maestro_render(request): # Funcion que redirige hacia la vista de maestro
     if request.session.get('rol') != 'maestro':
         return redirect('/')  # Redirige al login si no es maestro
-    return render(request, "gestion/maestro.html")
+    return render(request, "gestion/maestro/maestro.html")
 
 # ------------------------------------------------------------------ #
 
 def vista_admin_render(request): # Funcion que redirige hacia la vista de administrador
     if request.session.get('rol') != 'admin':
         return redirect('/')  # Redirige al login si no es admin
-    return render(request, "gestion/admin.html")
+    return render(request, "gestion/admin/admin.html")
 
 # ---------------------------------------------------------------------------------------------------- #
